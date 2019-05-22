@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - key
+  - Puerta
+  - lvl2
+  - lvl2blktg
   layers:
   - Default
   - TransparentFX
@@ -50,4 +53,10 @@ TagManager:
     locked: 0
   - name: Rayos X
     uniqueID: 810098103
+    locked: 0
+  - name: lvl2
+    uniqueID: 50798331
+    locked: 0
+  - name: lvl2blk
+    uniqueID: 1706013753
     locked: 0

@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\LensSwitching.cs" />
+    <Compile Include="Assets\Sripts\CameraController.cs" />
+    <Compile Include="Assets\Sripts\GameManagerScript.cs" />
     <Compile Include="Assets\Sripts\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

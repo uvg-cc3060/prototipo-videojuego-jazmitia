@@ -2,6 +2,7 @@
 using TMPro;
 public class LensSwitching : MonoBehaviour
 {
+    GameManagerScript gm;
 
     public int selectedLens=0 ;
     public  TextMeshProUGUI textMesh;
@@ -13,7 +14,14 @@ public class LensSwitching : MonoBehaviour
     void Start()
     {
         SelectLens();
-        key = GameObject.FindGameObjectWithTag("key");
+        gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+
+        if (gm.keys == 0) {
+            key = GameObject.FindGameObjectWithTag("key");
+
+
+        }
+
     }
 
     // Update is called once per frame
@@ -50,29 +58,46 @@ public class LensSwitching : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             selectedLens = 0;
-            key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
+
+            if (gm.keys == 0)
+            {
+                key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
+
+            }
+
 
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)&& transform.childCount>=2)
         {
             selectedLens = 1;
-            key.GetComponent<Renderer>().material.SetColor("_Color", color);
-            key.GetComponent<SpriteRenderer>().sortingLayerName = "Rayos X";
-            key.SetActive(true);
+
+            if (gm.keys == 0)
+            {
+                key.GetComponent<Renderer>().material.SetColor("_Color", color);
+                key.GetComponent<SpriteRenderer>().sortingLayerName = "Rayos X";
+                key.SetActive(true);
+
+            }
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
         {
             selectedLens = 2;
-            key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
+            if (gm.keys == 0)
+            {
+                key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
 
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4) && transform.childCount >= 4)
         {
             selectedLens = 3;
-            key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
+            if (gm.keys == 0)
+            {
+                key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
 
+            }
         }
 
 
