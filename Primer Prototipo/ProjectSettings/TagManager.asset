@@ -8,6 +8,13 @@ TagManager:
   - Puerta
   - lvl2
   - lvl2blktg
+  - activateelectro
+  - txtfromactivate
+  - cofre
+  - cable
+  - cable1
+  - cable2
+  - cable3
   layers:
   - Default
   - TransparentFX
@@ -44,6 +51,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: fondo
+    uniqueID: 2141046549
+    locked: 0
+  - name: Player
+    uniqueID: 3156084135
     locked: 0
   - name: Invisible
     uniqueID: 662662479

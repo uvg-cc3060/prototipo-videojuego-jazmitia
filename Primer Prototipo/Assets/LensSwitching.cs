@@ -6,15 +6,24 @@ public class LensSwitching : MonoBehaviour
 
     public int selectedLens=0 ;
     public  TextMeshProUGUI textMesh;
-    string [] lentes = new string[3] { "Thermal", "X-Ray", "Night Vision"};
+    string [] lentes = new string[4] { "Thermal", "X-Ray", "Night Vision","Electric Flow"};
     public GameObject key;
     public Color color;
+    public GameObject cable;
+
+    public GameObject cable1;
+
+    public GameObject cable2;
 
     // Start is called before the first frame update
     void Start()
     {
         SelectLens();
         gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        cable = GameObject.FindGameObjectWithTag("cable");
+        cable1 = GameObject.FindGameObjectWithTag("cable1");
+        cable2 = GameObject.FindGameObjectWithTag("cable2");
+
 
         if (gm.keys == 0) {
             key = GameObject.FindGameObjectWithTag("key");
@@ -58,6 +67,14 @@ public class LensSwitching : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) {
             selectedLens = 0;
+            try
+            {
+                cable.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable1.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable2.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+
+            }
+            catch { }
 
             if (gm.keys == 0)
             {
@@ -71,6 +88,13 @@ public class LensSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha2)&& transform.childCount>=2)
         {
             selectedLens = 1;
+            try
+            {
+                cable.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable1.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable2.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            }
+            catch { }
 
             if (gm.keys == 0)
             {
@@ -84,8 +108,17 @@ public class LensSwitching : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3) && transform.childCount >= 3)
         {
             selectedLens = 2;
+            try
+            {
+                cable.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable1.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+                cable2.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            }
+            catch { }
+
             if (gm.keys == 0)
             {
+
                 key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
 
             }
@@ -98,6 +131,18 @@ public class LensSwitching : MonoBehaviour
                 key.GetComponent<SpriteRenderer>().sortingLayerName = "Invisible";
 
             }
+
+            if (gm.unlocked==1) {
+                cable.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+                cable1.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+                cable2.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
+                Debug.Log("electric");
+
+            }
+        
+
+
+
         }
 
 
