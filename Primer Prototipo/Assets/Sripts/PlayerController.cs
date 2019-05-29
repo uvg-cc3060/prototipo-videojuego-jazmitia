@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("apachasteE");
             eapachado = 1;
         }
 
@@ -78,7 +77,6 @@ public class PlayerController : MonoBehaviour
             {
 
                 textMesh.text = "Necesitas la llave para poder interactuar con este objeto!";
-                Debug.Log("llegue");
             }
             else
             {
@@ -88,7 +86,6 @@ public class PlayerController : MonoBehaviour
 
                     //cable.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
 
-                Debug.Log("llegue");
             }
 
 
@@ -104,12 +101,10 @@ public class PlayerController : MonoBehaviour
                 textMesh.text = "Has conseguido una llave secreta (descubre para que sirve)";
                 llaveleectro = llaveleectro + 1;
 
-                Debug.Log("llegue");
             }
             else
             {
                 textMesh.text = "Ya ganaste esta llave.... no sabes para que sirve?";
-                Debug.Log("llegue");
             }
 
         
@@ -159,8 +154,8 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     gm.unlocked = 1;
+                    textMesh.text = "Electricidad activada";
 
-                    Debug.Log("YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 }
 
             }

@@ -15,6 +15,11 @@ TagManager:
   - cable1
   - cable2
   - cable3
+  - botonpuertalvl2
+  - lvl3door
+  - lvl3blktg
+  - secretmessage
+  - message
   layers:
   - Default
   - TransparentFX

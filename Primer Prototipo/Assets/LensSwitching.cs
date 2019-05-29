@@ -158,7 +158,6 @@ public class LensSwitching : MonoBehaviour
                 cable.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
                 cable1.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
                 cable2.GetComponent<SpriteRenderer>().sortingLayerName = "Player";
-                Debug.Log("electric");
 
             }
         
@@ -191,7 +190,6 @@ public class LensSwitching : MonoBehaviour
         if (tiempo < 0) {
             selectedLens = 0;
             tiempo = 30.0f;
-            Debug.Log("Reset");
             SelectLens();
 
 
