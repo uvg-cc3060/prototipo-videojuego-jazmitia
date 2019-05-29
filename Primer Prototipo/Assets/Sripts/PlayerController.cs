@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public GameObject FirstDoor;
     public GameObject cable;
     public GameObject leveltblk;
+    public GameObject lvl3blck;
+
+    public GameObject lvl3door;
+
     public int llaveleectro = 0;
     public TextMeshProUGUI textMesh;
     public int eapachado = 0;
@@ -24,8 +28,10 @@ public class PlayerController : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         gm.unlocked = 0;
         leveltblk = GameObject.FindGameObjectWithTag("lvl2blktg");
-      
-        FirstDoor = GameObject.FindGameObjectWithTag("Puerta");
+        lvl3blck = GameObject.FindGameObjectWithTag("lvl3blktg");
+
+        lvl3door = GameObject.FindGameObjectWithTag("lvl3door");
+          FirstDoor = GameObject.FindGameObjectWithTag("Puerta");
         cable = GameObject.FindGameObjectWithTag("cable");
 
     }
@@ -88,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
         }
 
+
+
         if (collision.tag == "cofre")
         {
 
@@ -107,12 +115,43 @@ public class PlayerController : MonoBehaviour
         
 
         }
+
+        if (collision.tag == "botonpuertalvl2")
+        {
+            if (gm.unlocked == 0)
+            {
+                textMesh.text = "Necesitas electricidad para activar este boton";
+
+            }
+            else
+            {
+                textMesh.text = "Ya tienes acceso al boton. Presiona E para abrir la puerta";
+
+            }
+
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (collision.tag == "botonpuertalvl2")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Destroy(lvl3door);
+                try
+                {
+                    lvl3blck.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
 
-        if (collision.tag == "activateelectro")
+                }
+                catch { }
+
+            }
+        }
+
+
+            if (collision.tag == "activateelectro")
         {
 
             if (llaveleectro != 0)
@@ -131,6 +170,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == "botonpuertalvl2")
+        {
+            textMesh.text = "";
+
+        }
         if (collision.tag == "activateelectro")
         {
             textMesh.text = "";
